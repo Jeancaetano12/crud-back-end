@@ -42,6 +42,10 @@ lerna-debug.log*
 .env.production.local
 .env.local
 
+# Local Database Data (Docker Volume)
+# ----------------------------------------------------------------
+# Pasta que contém os dados brutos do seu banco de dados local.
+/pgdata
 # temp directory
 .temp
 .tmp
@@ -54,3 +58,5 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+/generated/prisma

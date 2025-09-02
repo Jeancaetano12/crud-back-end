@@ -1,0 +1,16 @@
+# docker-compose.yml
+
+version: '3.8'
+services:
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: nestjs-postgres-dev
+    restart: always
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: nestjs
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
