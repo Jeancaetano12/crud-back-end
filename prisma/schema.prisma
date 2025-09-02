@@ -3,11 +3,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+generator client {
+  provider = "prisma-client-js"
+}
+
 model User {
   id         String   @id @default(uuid())
   name       String
   email      String   @unique
-  password   String
+  birth_date DateTime? @map("birth_date")
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
