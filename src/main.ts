@@ -14,7 +14,9 @@ async function bootstrap() {
       transform: true,
     }),
   );
-  
+  // --- HABILITA O CORS ---
+  app.enableCors();
+
   // --- CONFIGURAÇÃO DO SWAGGER PARA DOCUMENTAÇÃO DA API ---
   const config = new DocumentBuilder()
     .setTitle('CRUD NestJS API')
