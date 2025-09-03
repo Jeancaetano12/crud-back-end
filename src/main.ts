@@ -25,8 +25,7 @@ async function bootstrap() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  // A linha abaixo define a rota onde a documentação estará disponível.
-  // Neste caso: http://localhost:3000/api-docs
+
   SwaggerModule.setup('api-docs', app, document);
 
   // --- INICIA O SERVIDOR ---
