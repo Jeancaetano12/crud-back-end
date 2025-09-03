@@ -14,7 +14,7 @@ async function bootstrap() {
       transform: true,
     }),
   );
-
+  
   // --- CONFIGURAÇÃO DO SWAGGER PARA DOCUMENTAÇÃO DA API ---
   const config = new DocumentBuilder()
     .setTitle('CRUD NestJS API')

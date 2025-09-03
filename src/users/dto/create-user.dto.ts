@@ -1,5 +1,6 @@
 import { Type } from 'class-transformer';
 import {
+  IsDate,
   IsEmail,
   IsNotEmpty,
   IsString,
@@ -16,9 +17,7 @@ export class CreateUserDto {
   email: string;
 
   @IsOptional()
-  @Matches(/^\d{4}-\d{2}-\d{2}$/, {
-    message: 'A data de nascimento deve estar no formato YYYY-MM-DD.',
-  })
-  @Type(() => Date) // Essencial para converter a string em um objeto Date para o Prisma
+  @Type(() => Date)
+  @IsDate()
   birth_date?: Date;
 }
