@@ -4,8 +4,8 @@ import {
   IsEmail,
   IsNotEmpty,
   IsString,
-  IsOptional,
-  Matches, // Usaremos o Matches para a validação mais precisa
+  IsPhoneNumber,
+  IsOptional
 } from 'class-validator';
 
 export class CreateUserDto {
@@ -15,6 +15,10 @@ export class CreateUserDto {
 
   @IsEmail({}, { message: 'Por favor, insira um e-mail válido.' })
   email: string;
+
+  @IsPhoneNumber('BR', { message: 'O número de telefone fornecido não é válido.'})
+  @IsOptional()
+  telefone: string;
 
   @IsOptional()
   @Type(() => Date)
