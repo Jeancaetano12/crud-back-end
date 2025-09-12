@@ -6,8 +6,8 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "nest build",
-    "start:prod": "npx prisma migrate deploy && node dist/main",
+    "build": "npx prisma migrate deploy && nest build",
+    "start:prod": "node dist/main",
     "postinstall": "npx prisma generate",
     "start:dev": "nest start --watch",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
