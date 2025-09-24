@@ -32,15 +32,13 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
 
   SwaggerModule.setup('1c6c7d5a-9b8e-4a2f-8d1c-0a9b8d7c6e5f', app, document, {
-    swaggerOptions: {
-      customCssUrl:
-        '/swagger-ui/swagger-ui.css',
-      customJs: [
-        '/swagger-ui/swagger-ui-bundle.js',
-        '/swagger-ui/swagger-ui-standalone-preset.js',
-      ],
-      customfavIcon: '/swagger-ui/favicon-32x32.png'
-    },
+    customCssUrl:
+      '/swagger-ui/swagger-ui.css',
+    customJs: [
+      '/swagger-ui/swagger-ui-bundle.js',
+      '/swagger-ui/swagger-ui-standalone-preset.js',
+    ],
+    customfavIcon: '/swagger-ui/favicon-32x32.png'
   });
 
   // --- INICIA O SERVIDOR ---
