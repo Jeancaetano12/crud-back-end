@@ -25,6 +25,12 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Endpoint swagger
+
+```
+1c6c7d5a-9b8e-4a2f-8d1c-0a9b8d7c6e5f
+```
+
 ## Project setup
 
 ```bash

@@ -4,10 +4,13 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { join } from 'path';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  // --- CONFIGURAÇÃO PARA SERVIR ARQUIVOS ESTÁTICOS ---
+  app.useStaticAssets(join(__dirname, '..', 'public'));
   // --- HABILITA A VALIDAÇÃO AUTOMÁTICA ---
   app.useGlobalPipes(
     new ValidationPipe({
@@ -28,14 +31,15 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
 
-  SwaggerModule.setup('api-docs', app, document, {
+  SwaggerModule.setup('1c6c7d5a-9b8e-4a2f-8d1c-0a9b8d7c6e5f', app, document, {
     swaggerOptions: {
       customCssUrl:
-        'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.17.14/swagger-ui.min.css',
+        '/swagger-ui/swagger-ui.css',
       customJs: [
-        'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.17.14/swagger-ui-bundle.js',
-        'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.17.14/swagger-ui-standalone-preset.js',
+        '/swagger-ui/swagger-ui-bundle.js',
+        '/swagger-ui/swagger-ui-standalone-preset.js',
       ],
+      customfavIcon: '/swagger-ui/favicon-32x32.png'
     },
   });
 
